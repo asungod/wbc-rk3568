@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "model": "../models/wbc_yolov5.rknn",
+    "size": 640,
+    "format": "yolov5_heads_nchw",
+    "head_logits": false,
+    "anchors": [[[10,13],[16,30],[33,23]],[[30,61],[62,45],[59,119]],[[116,90],[156,198],[373,326]]],
+    "classes": 1,
+    "wbc_class_id": 0,
+    "confidence": 0.25,
+    "iou": 0.45,
+    "min_side": 8,
+    "max_candidates": 32,
+    "crop_padding": 0.05
+  },
+  "classifier": {
+    "model": "../models/wbc_classifier.rknn",
+    "size": 224,
+    "labels": ["basophil", "eosinophil", "lymphocyte", "monocyte", "neutrophil"],
+    "output": "logits",
+    "review_threshold": 0.8
+  },
+  "camera": {"index": 0, "width": 1280, "height": 720},
+  "output_dir": "../output",
+  "upload": {"url": "", "token_env": "WBC_UPLOAD_TOKEN", "timeout": 20, "max_bytes": 10485760}
+}

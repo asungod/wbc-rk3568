@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RK3568 白细胞端侧分析</title>
+<style>
+body{margin:0;background:#f4f7fa;color:#193245;font:16px/1.8 system-ui,sans-serif}main{max-width:900px;margin:60px auto;padding:0 24px}header{border-bottom:1px solid #cfdae2;padding-bottom:28px}h1{font-size:36px;line-height:1.35}h2{font-size:22px}p{max-width:760px}.tag{color:#087d81}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin:32px 0}article{background:white;border:1px solid #dce5eb;border-radius:12px;padding:24px}article h2{margin-top:0}.flow{background:#e4f1f1;padding:20px;border-radius:12px}footer{margin-top:40px;color:#566e7e;font-size:14px}
+</style>
+</head>
+<body><main>
+<header><p class="tag">边缘计算 · 显微图像分析</p><h1>RK3568 白细胞端侧分析</h1><p>通过检测与分类双模型组织显微图像处理流程，在端侧完成候选细胞定位、区域裁剪、五分类结果解析与置信度判断，并为待复核样本提供远程上传入口。</p></header>
+<section class="grid">
+<article><h2>两阶段推理</h2><p>检测模块定位候选细胞，分类模块处理裁剪区域。通过 RKNN-Toolkit Lite2 接入 RK3568 NPU。</p></article>
+<article><h2>本地交互</h2><p>提供摄像头预览、图片输入、拍照分析、结果保存及 Qt 操作界面。</p></article>
+<article><h2>按需上传</h2><p>依据分类置信度标记待复核样本，通过 HTTP(S) 传输原始图片与结构化结果。</p></article>
+</section>
+<p class="flow">图像输入 → 640×640 检测 → 筛选与裁剪 → 224×224 分类 → 本地结果与按需上传</p>
+<section><h2>代码内容</h2><p>公开模块包括图像预处理、RKNN 推理封装、YOLOv5 后处理、分类解析、结果存储、上传客户端和 Qt 界面。模型文件另行配置，类别索引及输出形式与导出模型保持一致。</p></section>
+<footer>RK3568 Linux · Python · OpenCV · RKNN-Toolkit Lite2 · Qt</footer>
+</main></body></html>
